@@ -11,6 +11,7 @@ import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.call.pojo.MqEntity;
 import org.call.pojo.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -30,6 +31,7 @@ public class VoiceMQListener implements RocketMQListener<MessageExt> {
     RestTemplate restTemplate;
 
     // 2. 与clientId对应的 url
+    @Value("${sdClientUrl}")
     String clientUrl;  // 回调通知接口
 
     private static final String[] KEY_INFO = {"0", "1"};

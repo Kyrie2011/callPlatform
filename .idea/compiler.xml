@@ -9,23 +9,20 @@
         <module name="call-common" />
         <module name="call-web" />
         <module name="call-admin" />
-        <module name="mq-service" />
+        <module name="call-mqService" />
         <module name="call-api" />
         <module name="call-pojo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="call-mqService" target="8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="call-admin" options="-parameters" />
       <module name="call-api" options="-parameters" />
       <module name="call-common" options="-parameters" />
+      <module name="call-mqService" options="-parameters" />
       <module name="call-pojo" options="-parameters" />
       <module name="call-web" options="-parameters" />
-      <module name="mq-service" options="-parameters" />
     </option>
   </component>
 </project>

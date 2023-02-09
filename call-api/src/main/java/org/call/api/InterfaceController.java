@@ -27,10 +27,10 @@ import java.util.Map;
 @RestController
 public class InterfaceController {
 
-    @Value("${mq.voice.topic}")
+    @Value("${mq.call.topic}")
     private String topic;
 
-    @Value("${mq.voice.tag.test}")
+    @Value("${mq.call.tag.voice}")
     private String tag;
 
     @Value("${voiceNoticeUrl}")
