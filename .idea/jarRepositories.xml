@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="gboat2-snapshots" />
+      <option name="name" value="Gboat2 Repository" />
+      <option name="url" value="http://192.168.133.147:8081/nexus/content/repositories/gboat2-snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat3-snapshots-jt" />
+      <option name="name" value="maven-GBOAT-snapshots" />
+      <option name="url" value="https://packages.glodon.com/artifactory/maven-GBOAT-snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="http://maven.aliyun.com/nexus/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat2-releases" />
+      <option name="name" value="Gboat2 Repository" />
+      <option name="url" value="http://192.168.133.147:8081/nexus/content/repositories/gboat2-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat3-releases-jt" />
+      <option name="name" value="maven-GBOAT-releases" />
+      <option name="url" value="https://packages.glodon.com/artifactory/maven-GBOAT-releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat2-releases" />
+      <option name="name" value="Gboat2 Repository" />
+      <option name="url" value="http://192.168.133.147:8081/nexus/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat2-snapshots" />
+      <option name="name" value="Gboat2 Repository" />
+      <option name="url" value="http://192.168.133.147:8081/nexus/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="aliRepo" />
+      <option name="name" value="OsChina Repository" />
+      <option name="url" value="https://maven.aliyun.com/repository/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat2_central" />
+      <option name="name" value="Gboat2 Repository" />
+      <option name="url" value="http://192.168.133.147:8081" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gboat2_central" />
+      <option name="name" value="Gboat2 Repository" />
+      <option name="url" value="http://192.168.133.147:8081/nexus/content/groups/public/" />
+    </remote-repository>
+  </component>
+</project>
