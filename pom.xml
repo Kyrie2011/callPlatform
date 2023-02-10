@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.7.RELEASE</version><!--<version>2.0.7.RELEASE</version>-->
+        <version>2.4.2</version><!--<version>2.0.7.RELEASE</version>-->
     </parent>
 
     <groupId>org.kyrie</groupId>
@@ -20,10 +20,11 @@
         <module>call-pojo</module>
         <module>call-web</module>
         <module>call-admin</module>
+        <module>call-demo</module>
     </modules>
 
     <properties>
-        <spring-boot.version>2.0.7.RELEASE</spring-boot.version>
+        <spring-boot.version>2.4.2</spring-boot.version>
         <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <tkmybatis.springboot.version>1.1.7</tkmybatis.springboot.version>

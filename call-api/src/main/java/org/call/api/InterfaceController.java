@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
@@ -15,7 +16,9 @@ import org.call.pojo.RequestDTO;
 import org.call.pojo.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import sun.misc.BASE64Decoder;
 
@@ -42,8 +45,13 @@ public class InterfaceController {
     @Autowired
     private IDWorker idWorker;
 
+    @GetMapping("/getUrl")
+    public String getVoiceNoticeUrl(){
+        return voiceNoticeUrl;
+    }
+
     @PostMapping("/importnumber")
-    public ResponseDTO importnumber(RequestDTO requestDTO) throws IOException {
+    public ResponseDTO importnumber(@RequestBody RequestDTO requestDTO) throws IOException {
 
         // 解析data;
         BASE64Decoder decoder = new BASE64Decoder();
@@ -70,8 +78,9 @@ public class InterfaceController {
     }
 
     private void sendCall(String topic, String tag, String keys, String body) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
-        Message message = new Message(topic, tag, keys, body.getBytes());
-        rocketMQTemplate.getProducer().send(message);
+        Message message = new Message(topic, "", keys, body.getBytes());
+        SendResult send = rocketMQTemplate.getProducer().send(message);
+        log.info("消息发送状态：{}", send.getSendStatus());
     }
 
     public static void main(String[] args) throws IOException {
