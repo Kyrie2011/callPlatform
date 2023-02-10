@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages = {"org.call.app","org.call.api", "org.call.common", "org.call.pojo"})
+@SpringBootApplication(scanBasePackages = {"org.call.app","org.call.api","org.call.mq", "org.call.common", "org.call.pojo"})
 public class CallPlatformApplication {
     public static void main(String[] args) {
         SpringApplication.run(CallPlatformApplication.class, args);

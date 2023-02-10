@@ -23,12 +23,12 @@ import java.io.UnsupportedEncodingException;
 
 @Slf4j
 @Component
-@RocketMQMessageListener(topic = "${mq.voice.topic}", consumerGroup = "${mq.voice.consumer.group.name}", messageModel = MessageModel.CLUSTERING)
+@RocketMQMessageListener(topic = "${mq.call.topic}", consumerGroup = "${mq.voice.consumer.group.name}", messageModel = MessageModel.CLUSTERING)
 public class VoiceMQListener implements RocketMQListener<MessageExt> {
 
     // 1. 业务层biz
-    @Autowired
-    RestTemplate restTemplate;
+   /* @Autowired
+    RestTemplate restTemplate;*/
 
     // 2. 与clientId对应的 url
     @Value("${sdClientUrl}")
@@ -42,8 +42,9 @@ public class VoiceMQListener implements RocketMQListener<MessageExt> {
         String body = null;
         try {
             body = new String(messageExt.getBody(), RemotingHelper.DEFAULT_CHARSET);
-            MqEntity entity = JSON.parseObject(body, MqEntity.class);
-            log.info("接收到消息, {}", entity);
+            log.info("接收到消息body, {}", body);
+           /* MqEntity entity = (MqEntity) JSON.parse(body);
+            log.info("接收到消息, {}", entity);*/
 
             // 2.调用业务层, 进行按键结果回调
             Thread.sleep(1000 * 60);  // 模拟接听耗时
@@ -52,12 +53,12 @@ public class VoiceMQListener implements RocketMQListener<MessageExt> {
 
             String result = KEY_INFO[index];
 
-            String number = entity.getTelephoneNumber();
+           /* String number = entity.getTelephoneNumber();
 
-            ResponseDTO responseDTO = new ResponseDTO(result, number);
-
+            ResponseDTO responseDTO = new ResponseDTO(result, number);*/
+            log.info("消息消费成功!");
             // 调用接口回传 /v1/demoCallResult
-            callNoticeInfo(responseDTO, clientUrl);
+            //callNoticeInfo(responseDTO, clientUrl);
 
         } catch (UnsupportedEncodingException | InterruptedException e) {
             e.printStackTrace();
@@ -65,7 +66,7 @@ public class VoiceMQListener implements RocketMQListener<MessageExt> {
 
     }
 
-    private void callNoticeInfo(ResponseDTO responseDTO, String clientUrl) {
+    /*private void callNoticeInfo(ResponseDTO responseDTO, String clientUrl) {
         HttpHeaders httpHeaders = new HttpHeaders();
         // 设置请求类型
         httpHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
@@ -75,5 +76,5 @@ public class VoiceMQListener implements RocketMQListener<MessageExt> {
         HttpEntity httpEntity = new HttpEntity(reqLog, httpHeaders);
 
         ResponseEntity<ResponseDTO> postForEntity = restTemplate.postForEntity(clientUrl, httpEntity, ResponseDTO.class);
-    }
+    }*/
 }
